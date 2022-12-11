@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "demo" {
   ami = "ami-06876ae57f920d87d"
   instance_type = "t2.micro"
-  vpc_security_group_ids = aws_security_group.allow_ssh.id
+  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
   
   tags = {
     "Name" = "valLinux Terraform"
