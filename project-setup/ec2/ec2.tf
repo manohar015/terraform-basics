@@ -16,7 +16,7 @@ resource "aws_spot_instance_request" "spot_worker" {
       host      = self.public_ip
     }
     inline = [
-      "ansible-pull -U https://github.com/manohar015/ansible.git -e COMPONENT=frontend -e ENV=dev -e APP_VERSION=0.0.1 roboshop-pull.yml",
+      "ansible-pull -U https://github.com/manohar015/ansible.git -e COMPONENT=frontend -e ENV=dev -e APP_VERSION=${var.APP_VERSION} roboshop-pull.yml",
     ]
   }
 }
