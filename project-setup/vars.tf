@@ -13,7 +13,7 @@ variable "ALL_COMPONENTS" {
             app_version ="null"
         },
         catalogue = {
-            app_version ="0.1.0"
+            app_version ="0.0.1"
         },
 
         cart = {
