@@ -7,7 +7,6 @@ resource "aws_spot_instance_request" "spot_worker" {
   tags = {
     "Name" = ${var.COMPONENT}
   }
-
   provisioner "remote-exec" {
     
     connection {
