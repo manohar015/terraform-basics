@@ -6,6 +6,20 @@ resource "aws_instance" "demo1" {
   tags = {
     "Name" = "Linux Terraform"
   }
+
+  provisioner "remote-exec" {
+    
+    connection {
+      type      = "ssh"
+      user      = "centos"
+      password  = "DevOps321"
+      host      = self.public_ip
+    }
+    inline = [
+      "ansible-pull -U https://github.com/manohar015/ansible.git -e COMPONENT=frontend -e ENV=dev -e APP_VERSION=0.0.1 roboshop-pull.yml",
+    ]
+  }
+
 }
 
 variable "sg" {}
