@@ -1,5 +1,5 @@
 resource "aws_instance" "demo1" {
-  ami = "ami-06876ae57f920d87d"
+  ami = data.aws_ami.my_ami.id
   instance_type = "t2.micro"
   vpc_security_group_ids = [var.sg]
   
