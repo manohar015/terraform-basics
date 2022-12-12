@@ -5,8 +5,9 @@ resource "aws_spot_instance_request" "spot_worker" {
   vpc_security_group_ids = [aws_security_group.allowed_ssh.id]
 
   tags = {
-    "Name" = "var.COMPONENT"
+    Name = var.COMPONENT
   }
+
   provisioner "remote-exec" {
     
     connection {
@@ -16,7 +17,7 @@ resource "aws_spot_instance_request" "spot_worker" {
       host      = self.public_ip
     }
     inline = [
-      "ansible-pull -U https://github.com/manohar015/ansible.git -e COMPONENT=${COMPONENT} -e ENV=dev -e APP_VERSION=${var.APP_VERSION} roboshop-pull.yml",
+      "ansible-pull -U https://github.com/manohar015/ansible.git -e COMPONENT=${var.COMPONENT} -e ENV=dev -e APP_VERSION=${var.APP_VERSION} roboshop-pull.yml",
     ]
   }
 }
