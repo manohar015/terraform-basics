@@ -8,7 +8,7 @@ resource "aws_instance" "demo" {
   vpc_security_group_ids = [aws_security_group.allows_ssh.id]
   
   tags = {
-    "Name" = "valLinux Terraform"
+    "Name" = "Linux Terraform"
   }
 }
 
